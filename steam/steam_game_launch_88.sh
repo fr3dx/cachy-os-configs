@@ -1,6 +1,11 @@
 #!/bin/bash
 
-powerprofilesctl set latency-performance
+cleanup() {
+    powerprofilesctl set power-saver
+}
+trap cleanup EXIT SIGINT SIGTERM
+
+powerprofilesctl set performance
 
 MANGOHUD=1 gamemoderun gamescope \
     -w 2560 -h 1440 -r 88 -o 88 -f \
@@ -12,8 +17,6 @@ MANGOHUD=1 gamemoderun gamescope \
     -- \
     env \
     MANGOHUD_CONFIG="fps_limit=88,no_display" \
-    PROTON_USE_FSYNC=1 \
+    PROTON_USE_NTSYNC=1 \
     ENABLE_LAYER_MESA_ANTI_LAG=1 \
-    game-performance "$@"
-
-powerprofilesctl set power-saver
+    "$@"
