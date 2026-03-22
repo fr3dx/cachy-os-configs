@@ -7,7 +7,6 @@ trap cleanup EXIT SIGINT SIGTERM
 
 powerprofilesctl set performance
 
-# Monitor 120 Hz-en, játék limit 86 FPS
 MANGOHUD=1 gamemoderun gamescope \
     -w 2560 -h 1440 -r 120 -o 120 -f \
     --adaptive-sync \
