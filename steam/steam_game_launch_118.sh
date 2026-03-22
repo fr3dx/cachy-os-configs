@@ -8,12 +8,10 @@ trap cleanup EXIT SIGINT SIGTERM
 powerprofilesctl set performance
 
 MANGOHUD=1 gamemoderun gamescope \
-    -w 2560 -h 1440 -r 118 -o 118 -f \
+    -w 2560 -h 1440 -r 120 -o 120 -f \
     --adaptive-sync \
     --immediate-flips \
-    --rt \
     --force-grab-cursor \
-    --mangoapp \
     -- \
     env \
     MANGOHUD_CONFIG="fps_limit=116,no_display" \
