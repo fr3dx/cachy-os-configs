@@ -1,3 +1,4 @@
+# # # Path of Exile 2 # # #
 #!/bin/bash
 
 # -------- Cleanup function --------
