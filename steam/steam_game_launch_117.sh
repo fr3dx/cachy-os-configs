@@ -12,9 +12,10 @@ MANGOHUD=1 gamemoderun gamescope \
     --adaptive-sync \
     --immediate-flips \
     --force-grab-cursor \
+    --rt \
     -- \
     env \
-    MANGOHUD_CONFIG="fps_limit=116,no_display" \
+    MANGOHUD_CONFIG="fps_limit=117,no_display" \
     PROTON_USE_NTSYNC=1 \
     ENABLE_LAYER_MESA_ANTI_LAG=1 \
     "$@"
