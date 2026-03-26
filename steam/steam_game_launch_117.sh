@@ -1,24 +1,23 @@
 #!/bin/bash
 
-# -------- Cleanup function --------
 cleanup() {
     powerprofilesctl set power-saver
 }
 trap cleanup EXIT SIGINT SIGTERM
 
-# -------- CPU / Power --------
 powerprofilesctl set performance
 
-# -------- Launch game --------
-MANGOHUD=1 gamemoderun gamescope \
+gamescope \
     -w 2560 -h 1440 -r 120 -f \
     --adaptive-sync \
     --immediate-flips \
     --force-grab-cursor \
     --rt \
     -- \
-    env \
-    MANGOHUD_CONFIG="fps_limit=117,no_display" \
+    gamemoderun env \
+    DXVK_FRAME_RATE=117 \
+    MANGOHUD=1 \
+    MANGOHUD_CONFIG="read_cfg" \
     PROTON_USE_NTSYNC=1 \
     ENABLE_LAYER_MESA_ANTI_LAG=1 \
     "$@"
