@@ -19,6 +19,5 @@ gamescope \
     MANGOHUD=1 \
     MANGOHUD_CONFIG="read_cfg" \
     PROTON_USE_NTSYNC=1 \
-    ENABLE_LAYER_MESA_ANTI_LAG=1 \
     "$@"
 
