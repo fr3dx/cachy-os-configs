@@ -1,6 +1,8 @@
-# Splitgate Arena Reloaded
-
 #!/bin/bash
+
+###########################
+# Splitgate Arena Reloaded#
+###########################
 
 # Power profile function
 switch_lavd() {
@@ -8,8 +10,8 @@ switch_lavd() {
     sudo systemctl start scx_lavd-$2.service 2>/dev/null
 }
 
+# Closing game -> Switch to powersave profile
 cleanup() {
-    # Closing game -> Switch to powersave profile
     powerprofilesctl set power-saver 2>/dev/null
     switch_lavd "performance" "powersave"
 }
