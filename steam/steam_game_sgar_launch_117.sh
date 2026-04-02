@@ -1,8 +1,8 @@
 #!/bin/bash
 
-###########################
-# Splitgate Arena Reloaded#
-###########################
+############################
+# Splitgate Arena Reloaded #
+############################
 
 # Power profile function
 switch_lavd() {
