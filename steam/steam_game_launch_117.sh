@@ -30,8 +30,6 @@ gamescope \
     --force-grab-cursor \
     -- \
     env \
-    DXVK_FRAME_RATE=117 \
-    MANGOHUD=1 \
-    MANGOHUD_CONFIG="read_cfg" \
+    VKD3D_FRAME_RATE=117 \
     "$@"
 
