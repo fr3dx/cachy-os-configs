@@ -23,7 +23,7 @@ powerprofilesctl set performance 2>/dev/null
 switch_lavd "powersave" "performance"
 
 # Turn on mangohud, limit fps and improve quality
-env DXVK_FRAME_RATE=117 \
+env VKD3D_FRAME_RATE=117 \
     MANGOHUD=1 \
-    MANGOHUD_CONFIG="read_cfg,fps_limit=117,fps_limit_method=late,af=16,bicubic" \
+    MANGOHUD_CONFIG="read_cfg,af=16" \
     "$@"
