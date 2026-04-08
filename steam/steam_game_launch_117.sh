@@ -22,8 +22,7 @@ trap cleanup EXIT SIGINT SIGTERM
 powerprofilesctl set performance 2>/dev/null
 switch_lavd "powersave" "performance"
 
-
-# Launch Gamescope with MangoHud. Do not forget limit fps ingame -> 115,116,119!
+# Launch Gamescope with MangoHud. Do not forget to limit fps ingame -> 115-119!
 gamescope \
     -w 2560 -h 1440 -r 120 -f \
     --adaptive-sync \
