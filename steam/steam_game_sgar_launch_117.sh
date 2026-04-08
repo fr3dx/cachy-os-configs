@@ -22,7 +22,7 @@ trap cleanup EXIT SIGINT SIGTERM
 powerprofilesctl set performance 2>/dev/null
 switch_lavd "powersave" "performance"
 
-# Launch MangoHud. Do not forget limit fps ingame -> 115,116,119!
+# Launch MangoHud. Do not forget to limit fps ingame -> 115-119!
 env MANGOHUD=1 \
     MANGOHUD_CONFIG="read_cfg,af=16" \
     "$@"
