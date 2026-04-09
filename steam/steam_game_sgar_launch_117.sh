@@ -4,7 +4,7 @@
 # Splitgate Arena Reloaded #
 ############################
 
-# LAVD scheduler mode function
+# scx_lavd scheduler mode function
 switch_lavd() {
     sudo systemctl stop scx_lavd-$1.service 2>/dev/null
     sudo systemctl start scx_lavd-$2.service 2>/dev/null
@@ -22,7 +22,9 @@ trap cleanup EXIT SIGINT SIGTERM
 powerprofilesctl set performance 2>/dev/null
 switch_lavd "powersave" "performance"
 
-# Launch MangoHud. Do not forget to limit fps ingame -> 115-119!
-env MANGOHUD=1 \
+# Launch MangoHud, limit fps
+env VKD3D_FRAME_RATE=117 \
+    MANGOHUD=1 \
     MANGOHUD_CONFIG="read_cfg,af=16" \
     "$@"
+
