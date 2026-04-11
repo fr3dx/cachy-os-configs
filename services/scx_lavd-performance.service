@@ -1,16 +1,11 @@
 [Unit]
 Description=LAVD Scheduler - Performance Mode
 Conflicts=scx_lavd-powersave.service
-After=network.target
 
 [Service]
 Type=simple
-Nice=-20
-OOMScoreAdjust=-1000
-ExecStartPre=-/usr/bin/scx_loader -s stop
 ExecStart=/usr/bin/scx_lavd --performance
-Restart=on-failure
-LimitMEMLOCK=infinity
+Restart=no
 
 [Install]
 WantedBy=multi-user.target
