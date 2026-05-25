@@ -29,8 +29,10 @@ gamescope \
     --force-grab-cursor \
     -- \
     env \
+    LOW_LATENCY_LAYER=1 \
+    LOW_LATENCY_LAYER_REFLEX=1 \
     VKD3D_FRAME_RATE=117 \
-    MANGOHUD=1 \
-    MANGOHUD_CONFIG="read_cfg,af=16" \
+    MANGOHUD=0 \
+    MANGOHUD_CONFIG="read_cfg" \
     "$@"
 
