@@ -22,15 +22,7 @@ trap cleanup EXIT SIGINT SIGTERM
 powerprofilesctl set performance 2>/dev/null
 switch_lavd "powersave" "performance"
 
-
-# Launch Gamescope with MangoHud, limit fps
-gamescope \
-    -w 2560 -h 1440 -r 120 -f \
-    --adaptive-sync \
-    --force-grab-cursor \
-    -- \
-    env \
-    MANGOHUD=1 \
-    MANGOHUD_CONFIG="fps_limit=87,read_cfg,af=16" \
-    DXVK_ASYNC=1 \
+# Launch MangoHud, limit fps
+env MANGOHUD=1 \
+    MANGOHUD_CONFIG="fps_limit=117,read_cfg" \
     "$@"
