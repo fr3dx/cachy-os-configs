@@ -22,13 +22,8 @@ trap cleanup EXIT SIGINT SIGTERM
 powerprofilesctl set performance 2>/dev/null
 switch_lavd "powersave" "performance"
 
-# Launch the game with gamescope and MangoHud, limit fps to 117.
-gamescope \
-    -w 2560 -h 1440 -r 120 -f \
-    --adaptive-sync \
-    --force-grab-cursor \
-    -- \
-    env \
+# Launch the game with MangoHud, enable low_latency_layer, limit fps to 117.
+env \
     LOW_LATENCY_LAYER=1 \
     LOW_LATENCY_LAYER_REFLEX=1 \
     VKD3D_FRAME_RATE=117 \
