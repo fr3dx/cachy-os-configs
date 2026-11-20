@@ -16,18 +16,20 @@ cleanup() {
     switch_lavd "performance" "powersave"
 }
 
-trap cleanup EXIT SIGINT SIGTERM
+trap cleanup EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
 
 # Starting game -> Switch to performance mode
 powerprofilesctl set performance 2>/dev/null
 switch_lavd "powersave" "performance"
 
-# Launch the game with MangoHud, enable low_latency_layer, limit fps to 117.
+# Enable MangoHud and VKD3D low latency, cap FPS at 117.
 env \
-    LOW_LATENCY_LAYER=1 \
-    LOW_LATENCY_LAYER_REFLEX=1 \
+    DISABLE_LOW_LATENCY_LAYER=1 \
+    PROTON_VKD3D_LOWLATENCY=1 \
     VKD3D_FRAME_RATE=117 \
-    MANGOHUD=0 \
+    MANGOHUD=1 \
     MANGOHUD_CONFIG="read_cfg" \
     "$@"
 
