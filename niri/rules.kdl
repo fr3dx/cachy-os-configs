@@ -1,4 +1,4 @@
-   // Workspaces
+    // Workspaces
     workspace "main"
 
     window-rule {
@@ -47,10 +47,11 @@
        open-focused false
     }
 
-    // Assetto Corsa Rally
+    // Steam games: launch in fullscreen and enable VRR
     window-rule {
-        match app-id="^steam_app_3917090$"
+        match app-id="^steam_app_[0-9]+$"
         open-fullscreen true
+        variable-refresh-rate true
     }
 
     // Open browser windows in a full-width column.
