@@ -16,7 +16,9 @@ cleanup() {
     switch_lavd "performance" "powersave"
 }
 
-trap cleanup EXIT SIGINT SIGTERM
+trap cleanup EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
 
 # Starting game -> Switch to performance profile
 powerprofilesctl set performance 2>/dev/null
@@ -24,5 +26,5 @@ switch_lavd "powersave" "performance"
 
 # Launch MangoHud, limit fps
 env MANGOHUD=1 \
-    MANGOHUD_CONFIG="fps_limit=117,read_cfg" \
+    MANGOHUD_CONFIG="fps_limit=87,read_cfg" \
     "$@"
