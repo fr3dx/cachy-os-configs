@@ -1,0 +1,77 @@
+   // Workspaces
+    workspace "main"
+
+    window-rule {
+        geometry-corner-radius 20 // Set every window radius to 20
+        clip-to-geometry true
+    }
+
+    window-rule {
+        background-effect {
+          blur true
+          xray false
+        }
+    }
+
+    // Show a thin border around LibreOffice windows.
+    window-rule {
+        match app-id=r#"^libreoffice-(base|calc|draw|impress|math|writer)$"#
+
+        open-maximized-to-edges false
+        open-maximized true
+
+        border {
+            on
+            width 2
+        }
+    }
+
+    // Floating Noctalia settings window.
+    window-rule {
+        match app-id="dev.noctalia.Noctalia"
+        open-floating true
+        default-column-width { fixed 1080; }
+        default-window-height { fixed 920; }
+    }
+
+    // if you use steam you will probably like these
+    window-rule {
+        match app-id="steam"
+        exclude title=r#"^[Ss]team$"#
+        open-floating true
+    }
+
+    window-rule {
+       match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+       default-floating-position x=10 y=10 relative-to="bottom-right"
+       open-focused false
+    }
+
+    // Assetto Corsa Rally
+    window-rule {
+        match app-id="^steam_app_3917090$"
+        open-fullscreen true
+    }
+
+    // Open browser windows in a full-width column.
+    // Picture-in-Picture follows the default workspace rule.
+    window-rule {
+        match app-id=r#"^(zen|helium)$"#
+        exclude title="^Picture-in-Picture$"
+
+        open-on-workspace "main"
+        open-maximized true
+    }
+
+    layer-rule {
+        match namespace="^noctalia-wallpaper"
+        place-within-backdrop true
+    }
+
+    layer-rule {
+        match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+        background-effect {
+          xray false
+          // blur false
+        }
+    }
