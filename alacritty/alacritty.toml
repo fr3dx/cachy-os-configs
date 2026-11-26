@@ -1,68 +1,64 @@
-[colors.primary]
-background = '#151515'
-foreground = '#e0e0e0'
+[general]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
+working_directory = "None"
+live_config_reload = true
 
-[colors.cursor]
-text = '#151515'
-cursor = '#e0e0e0'
+[env]
+TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1.0"
 
-[colors.vi_mode_cursor]
-text = '#151515'
-cursor = '#8da3b9'
+[window]
+dimensions = { columns = 100, lines = 30 }
+dynamic_padding = true
+decorations = "Full"
+opacity = 1.0
+title = "Alacritty@CachyOS"
+class = { instance = "Alacritty", general = "Alacritty" }
+decorations_theme_variant = "Dark"
 
-[colors.search.matches]
-foreground = '#222222'
-background = '#a988b0'
+[scrolling]
+history = 10000
+multiplier = 3
 
-[colors.search.focused_match]
-foreground = '#222222'
-background = '#8da3b9'
+[font]
+normal = { family = "Noto Sans Mono", style = "Regular" }
+bold = { family = "Noto Sans Mono", style = "Bold" }
+italic = { family = "Noto Sans Mono", style = "Italic" }
+bold_italic = { family = "Noto Sans Mono", style = "Bold Italic" }
+size = 13.0
 
-[colors.footer_bar]
-foreground = '#222222'
-background = '#e8e3e3'
+[colors]
+draw_bold_text_with_bright_colors = true
 
-[colors.hints.start]
-foreground = '#222222'
-background = '#8aa6a2'
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+save_to_clipboard = true
 
-[colors.hints.end]
-foreground = '#222222'
-background = '#8aa6a2'
+[cursor]
+style = { shape = "Underline", blinking = "Off" }
+unfocused_hollow = true
+thickness = 0.15
 
-[colors.selection]
-text = '#e0e0e0'
-background = '#222222'
+[mouse]
+hide_when_typing = true
+bindings = [
+{ mouse = "Middle", mods = "None", action = "PasteSelection" },
+]
 
-
-[colors.normal]
-black   = '#151515'
-red     = '#b66467'
-green   = '#8c977d'
-yellow  = '#d9bc8c'
-blue    = '#8da3b9'
-magenta = '#a988b0'
-cyan    = '#8aa6a2'
-white   = '#e0e0e0'
-
-
-[colors.bright]
-black   = '#414141'
-red     = '#b66467'
-green   = '#8c977d'
-yellow  = '#d9bc8c'
-blue    = '#8da3b9'
-magenta = '#a988b0'
-cyan    = '#8aa6a2'
-white   = '#e8e3e3'
-
-
-[colors.dim]
-black   = '#151515'
-red     = '#b66467'
-green   = '#8c977d'
-yellow  = '#d9bc8c'
-blue    = '#8da3b9'
-magenta = '#a988b0'
-cyan    = '#8aa6a2'
-white   = '#e0e0e0'
+[keyboard]
+bindings = [
+{ key = "Paste", mods = "None", action = "Paste" },
+{ key = "Copy", mods = "None", action = "Copy" },
+{ key = "L", mods = "Control", action = "ClearLogNotice" },
+{ key = "L", mods = "Control", mode = "~Vi", chars = "\f" },
+{ key = "PageUp", mods = "Shift", mode = "~Alt", action = "ScrollPageUp" },
+{ key = "PageDown", mods = "Shift", mode = "~Alt", action = "ScrollPageDown" },
+{ key = "Home", mods = "Shift", mode = "~Alt", action = "ScrollToTop" },
+{ key = "End", mods = "Shift", mode = "~Alt", action = "ScrollToBottom" },
+{ key = "V", mods = "Control|Shift", action = "Paste" },
+{ key = "C", mods = "Control|Shift", action = "Copy" },
+{ key = "F", mods = "Control|Shift", action = "SearchForward" },
+{ key = "B", mods = "Control|Shift", action = "SearchBackward" },
+{ key = "C", mods = "Control|Shift", mode = "Vi", action = "ClearSelection" },
+{ key = "Key0", mods = "Control", action = "ResetFontSize" },
+]
